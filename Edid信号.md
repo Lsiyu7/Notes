@@ -1,6 +1,6 @@
 # edid
 
-![image-20240204141757616](D:\markdown\image-20240204141757616.png)
+![image-20240204141757616](.\image\image-20240204141757616.png)
 
 00h-07h 数据头
 
@@ -32,11 +32,11 @@ Block2-4 detailed timing或者显示器详细参数设置
 
 
 
-![image-20240204141831009](D:\markdown\image-20240204141831009.png)
+![image-20240204141831009](.\image\image-20240204141831009.png)
 
 
 
-![image-20240204141857351](D:\markdown\image-20240204141857351.png)
+![image-20240204141857351](.\image\image-20240204141857351.png)
 
 ``` c
 // CBios.h-> CBIOS_TIMING_ATTRIB    640x480 @60Hz
@@ -53,7 +53,7 @@ HorSyncBackPor: HorToal - HorSyncEnd / 800-(640+16+96)
 */
 ```
 
-![image-20240204142640970](D:\markdown\image-20240204142640970.png)
+![image-20240204142640970](.\image\image-20240204142640970.png)
 
 **Horizontal Sync pulse **,也称为行同步脉冲,是LCD屏幕每一行画面的开始处产生的一个同步信号脉冲。用于通知显示器一行的扫描即将开始,以保证图像的稳定和同步。
 

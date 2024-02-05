@@ -2,7 +2,7 @@
 
 [参考](https://www.cnblogs.com/zyly/p/17775867.html)
 
-![image-20240204135457133](D:\markdown\image-20240204135457133.png)
+![image-20240204135457133](.\image\image-20240204135457133.png)
 
 ![ima](D:\markdown\image-20240204114811652.png)
 
