@@ -76,3 +76,16 @@ git reset --hard HEAD^
 ```
 
 `git reset --hard HEAD^`会从Git历史记录中完全删除最后一次提交沿着的所有相关更改。当你使用`git reset --hard HEAD^`时，就没有回头路了。所以当你想永久放弃最后一次提交和它的所有修改时，要非常小心地使用它。
+
+### refs
+
+```bash
+git push origin HEAD:refs/for/master
+```
+
+git push 肯定是推送
+origin : 是远程的库的名字
+HEAD: 是一个特别的指针，它是一个指向你正在工作的本地分支的指针，
+可以把它当做本地分支的别名，git这样就可以知道你工作在哪个分支
+refs/for :意义在于我们提交代码到服务器之后是需要经过 code review 之后才能进行merge的
+refs/heads： 不需要
