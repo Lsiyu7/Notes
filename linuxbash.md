@@ -133,3 +133,25 @@ pkg-config可以帮助你插入正确的编译选项，而不需要你通过硬�
 - `-o` 或 `--output=`：指定输出格式。例如，`journalctl -o json-pretty` 将以易于阅读的JSON格式显示日志。
 - `--no-full`：限制输出，使其适应屏幕大小，并在截断的地方添加省略号
 
+# smbclient
+
+使用smbclient访问共享文件夹
+
+```bash
+# 列出某个IP地址所提供的共享文件夹
+smbclient -L 198.168.0.1 -U username%password
+#smbclient -L 10.30.252.17 -U siyuli@glenfly%password
+
+#像FTP客户端一样使用smbclient
+smbclient //192.168.0.1/tmp  -U username%password
+#smbclient //10.30.252.17/SWTemp -U siyuli@glenfly%password
+```
+
+- `cd <目录名>`: 更改远程共享上的当前工作目录。例如，`cd documents` 会将当前目录更改为远程共享中的 `documents` 目录。
+- `lcd <目录名>`: 更改本地机器上的当前工作目录。这对于准备上传或下载文件到特定的本地目录很有用。例如，`lcd /home/user/downloads` 会将当前的本地目录更改为 `/home/user/downloads`。
+- `get <远程文件> [本地文件]`: 从远程共享下载文件。如果指定了本地文件名，下载的文件将被重命名为该名称。例如，`get report.doc` 会下载远程文件 `report.doc` 到当前的本地目录。
+- `mget <文件模式>`: 使用模式（如通配符）从远程共享批量下载文件。例如，`mget *.pdf` 会下载当前远程目录下的所有 PDF 文件。
+- `put <本地文件> [远程文件]`: 将文件从本地上传到远程共享。如果指定了远程文件名，上传的文件将被重命名为该名称。例如，`put proposal.doc` 会上传本地文件 `proposal.doc` 到当前的远程目录。
+- `mput <文件模式>`: 使用模式（如通配符）批量上传本地文件到远程共享。例如，`mput *.txt` 会上传当前本地目录下的所有文本文件。
+- `ls` 或 `dir`: 列出当前远程目录中的文件和子目录。
+- `lls` 或 `ldir`: 列出当前本地目录中的文件和子目录。

@@ -6,9 +6,9 @@
 
 * 根分区  安装目录
 
-	
+* `blkid` ` lsblk` 查看当前系统分区
 
-# swap分区（可以共享，建议每个系统分配）
+# swap分区（可以共享，需要在创建系统时候分配）
 
 ​	swap 分区关系系统S3 S4。
 
@@ -16,7 +16,7 @@
 
 ​	`free -m`  看到swap分区大小为0，即没有swap分区。
 
-​	开始创建swap分区
+​	开始创建swap分区，**该swap分区是创建在ext4分区中 **
 
 1. 使用dd命令创建一个swap分区，在这里创建一个4G大小的分区
     `dd if=/dev/zero of=/root/swapfile bs=1M count=4096`

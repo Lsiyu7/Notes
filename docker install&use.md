@@ -94,3 +94,21 @@ $ docker run --rm -it -v /<host_path>:/<container_path> image_name
 # 删除本地镜像
 
 `docker image rm {imageID}`
+
+# docker 仓库
+
+user :docker
+
+password：Docker2023
+
+登录到仓库 `docker login docker.rd.com`
+
+先打tag，再上传到仓库
+
+使用 `docker tag` 将 `ubuntu:latest` 这个镜像标记为 `dockers.rd.com/ubuntu:latest`。
+
+格式为 `docker tag IMAGE[:TAG] [REGISTRY_HOST[:REGISTRY_PORT]/]REPOSITORY[:TAG]`
+
+[:TAG]是dockers image 中的TAG
+
+[教程](https://yeasy.gitbook.io/docker_practice/repository/registry)
