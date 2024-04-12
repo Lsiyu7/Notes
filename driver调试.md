@@ -12,6 +12,6 @@ sudo update-initramfs -u
 
 `sudo insmod` 或者安装驱动
 
-尝试重启X服务 无需重启
+尝试重启X服务 重启看情况
 
 `sudo systemctl restart display-manager.service`
