@@ -80,6 +80,13 @@ ENV TZ=Asia/Shanghai
 
 ```
 
+- `adduser`: 这是一个用于创建用户的命令。
+- `--disabled-password`: 这个选项禁用了用户的密码登录功能。用户将无法使用密码进行登录，只能使用其他认证方式（如密钥）。
+- `--gecos ""`: 这个选项设置用户的 GECOS 字段为空。GECOS 字段通常用于存储用户的个人信息，例如全名、电话号码等。此处将其设置为空，表示不提供这些信息。
+- `glenfly`: 这是要创建的用户名。
+- `echo "glenfly:123" | chpasswd`: 这个命令将字符串 `"glenfly:123"` 通过管道传递给 `chpasswd` 命令。`chpasswd` 命令用于批量修改用户密码，这里将用户 `glenfly` 的密码设置为 `123`。
+- `usermod -a -G sudo glenfly`: 这个命令用于将用户 `glenfly` 添加到 `sudo` 用户组中。`usermod` 是一个用于修改用户属性的命令，`-a` 选项表示追加操作，`-G sudo` 表示将用户添加到 `sudo` 用户组。
+
 # docker run
 
 ```bash

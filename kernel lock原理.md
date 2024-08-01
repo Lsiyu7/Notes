@@ -34,7 +34,7 @@ prefetchw(&lock->slock);    // gcc 内置预取指令，指定读取到最近的
 
 1、先将 spinlock 结构体中的 next 变量 + 1，不管是否能够获得锁
 
-2、**判断 +1 操作之前，next 是否等于 owner **，只有在 next 与 owner 相等时，才能完成加锁，否则就循环等待，从这里也可以看到，自旋锁并不是完全地自旋，而是使用了 wfe 指令。
+2、**判断 +1 操作之前的next 是否等于 owner **，只有在 next 与 owner 相等时，才能完成加锁，否则就循环等待，从这里也可以看到，自旋锁并不是完全地自旋，而是使用了 wfe 指令。
 
 要完整地理解加锁过程，就必须要提到解锁，因为这两者是相对的，解锁的实现很简单：就是将 spinlock 结构体中的 owner 进行 +1 操作，因此，当一个 spinlock 初始化时，next 和 onwer 都为 0。某个执行流 A 获得锁，next + 1，此时在其它执行流 B 眼中，next ！= owner，所以 B 等待。当 A 调用 spin_unlock 时，owner + 1。
 

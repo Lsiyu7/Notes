@@ -98,6 +98,10 @@ refs/heads： 不需要
 
 ### git 重写历史（合并修改多个提交）
 
-[git重写历史](https://git-scm.com/book/zh/v2/Git-%E5%B7%A5%E5%85%B7-%E9%87%8D%E5%86%99%E5%8E%86%E5%8F%B2)
+[git重写历史](https://git-scm.com/book/zh/v2/Git-%E5%B7%A5%E5%85%B7-%E9%87%8D%E5%86%99%E5%8E%86%E5%8F%B2)dr	st
 
 `git rebase -i HEAD` 用法
+
+## git 检查commit 空格
+
+`git diff --check {commit of hash}`

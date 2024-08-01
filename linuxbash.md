@@ -1,4 +1,4 @@
-# 软连接与硬链接
+#  软连接与硬链接
 
 ## 硬链接
 具有相同inode节点号的多个文件互为硬链接文件；
@@ -35,16 +35,6 @@
 * -f 强制执行
 * -n 把符号链接视为一般目录
 
-
-
-
-# 网卡 config
-
-``` bash
-sudo ip route add 10.30.90.8 via 10.30.23.254 dev enp2s0
-#网卡出错 
-sudo apt install -y dkms git build-essential linux-headers-$(uname -r) dh-make 
-```
 
 # pkg-config
 
@@ -119,6 +109,16 @@ pkg-config可以帮助你插入正确的编译选项，而不需要你通过硬�
 
 `systemctl list-dependencies plymouth-quit-wait.service`
 
+输出Plymouth log信息
+
+>  打开/etc/default/grub 
+>
+> 在`GRUB_COMLINE_LINUX_DEFAULT`增加 “plymouth:debug” 
+>
+> “splash” 为开机动画 
+
+在/usr/share/plymouth/plymouth.default  `DeviceTimeout` 影响splash 显示 
+
 ---
 
 # journalctl 参数详解
@@ -145,13 +145,22 @@ smbclient -L 198.168.0.1 -U username%password
 #像FTP客户端一样使用smbclient
 smbclient //192.168.0.1/tmp  -U username%password
 #smbclient //10.30.252.17/SWTemp -U siyuli@glenfly%password
+
+# smb mount 
+sudo mount -t cifs //10.30.252.10/gfx/SWTemp/Civic ~/siyuli -o username=siyuli,password=zmm@0701,domain=glenfly.com
 ```
 
 - `cd <目录名>`: 更改远程共享上的当前工作目录。例如，`cd documents` 会将当前目录更改为远程共享中的 `documents` 目录。
 - `lcd <目录名>`: 更改本地机器上的当前工作目录。这对于准备上传或下载文件到特定的本地目录很有用。例如，`lcd /home/user/downloads` 会将当前的本地目录更改为 `/home/user/downloads`。
-- `get <远程文件> [本地文件]`: 从远程共享下载文件。如果指定了本地文件名，下载的文件将被重命名为该名称。例如，`get report.doc` 会下载远程文件 `report.doc` 到当前的本地目录。
+- `get <程文件> [本地文件]`: 从远程共享下载文件。如果指定了本地文件名，下载的文件将被重命名为该名称。例如，`get report.doc` 会下载远程文件 `report.doc` 到当前的本地目录。
 - `mget <文件模式>`: 使用模式（如通配符）从远程共享批量下载文件。例如，`mget *.pdf` 会下载当前远程目录下的所有 PDF 文件。
 - `put <本地文件> [远程文件]`: 将文件从本地上传到远程共享。如果指定了远程文件名，上传的文件将被重命名为该名称。例如，`put proposal.doc` 会上传本地文件 `proposal.doc` 到当前的远程目录。
 - `mput <文件模式>`: 使用模式（如通配符）批量上传本地文件到远程共享。例如，`mput *.txt` 会上传当前本地目录下的所有文本文件。
 - `ls` 或 `dir`: 列出当前远程目录中的文件和子目录。
 - `lls` 或 `ldir`: 列出当前本地目录中的文件和子目录。
+
+# 包依赖管理
+
+软件包降级：`sudo apt install pkg_name=version`
+
+寻找包依赖：apt-cache search <name>`
