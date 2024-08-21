@@ -105,3 +105,6 @@ refs/heads： 不需要
 ## git 检查commit 空格
 
 `git diff --check {commit of hash}`
+
+## git format_patch -M {commit of hash}
+
